@@ -2,17 +2,17 @@
 	<head th:replace="~{base :: head}">
 		<meta charset="UTF-8">
 	</head>
-	
+
 	<body>
 		<div th:replace="~{base :: logo}"></div>
-	
+
 		<div class="container">
 			<div th:replace="~{base :: titulo('Leilões cadastrados')}"></div>
-		
+
 			<div class="alert alert-primary" role="alert" th:if="${message}">
 				<span th:text="${message}"></span>
 			</div>
-	
+
 			<table id="tabela-leiloes" class="table table-hover">
 				<thead>
 					<tr>
@@ -24,7 +24,7 @@
 						<th scope="col"></th>
 					</tr>
 				</thead>
-	
+
 				<tbody>
 					<tr th:each="leilao : ${leiloes}" >
 						<td scope="row" th:text="${leilao.nome}">Nome</td>
@@ -41,7 +41,7 @@
 				</tbody>
 			</table>
 			<br />
-	
+
 			<a class="btn btn-primary" id="novo_leilao_link" th:href="@{'/leiloes/new'}" role="button" sec:authorize="isAuthenticated()">Novo Leilão</a>
 		</div>
 	</body>

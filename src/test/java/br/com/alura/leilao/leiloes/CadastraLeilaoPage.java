@@ -14,10 +14,10 @@ public class CadastraLeilaoPage {
         this.browser.quit();
     }
 
-    public LeiloesPage cadastrarLeilao(String nome, String valor, String hoje) {
-        this.browser.findElement(By.id("nome")).sendKeys(nome);
-        this.browser.findElement(By.id("valorInicial")).sendKeys(valor);
-        this.browser.findElement(By.id("dataAbertura")).sendKeys(hoje);
+    public LeiloesPage cadastrarLeilao(String nome, String valorInicial, String dataAbertura) {
+        this.browser.findElement(By.name("nome")).sendKeys(nome);
+        this.browser.findElement(By.name("valorInicial")).sendKeys(valorInicial);
+        this.browser.findElement(By.name("dataAbertura")).sendKeys(dataAbertura);
         this.browser.findElement(By.id("button-submit")).submit();
 
         return new LeiloesPage(browser);

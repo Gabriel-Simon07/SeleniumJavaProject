@@ -9,9 +9,12 @@ public class LeiloesPage {
 	private WebDriver browser;
 
 	public LeiloesPage() { }
-	public LeiloesPage(WebDriver webDriver) {
-		this.browser = webDriver;
-		browser.navigate().to(URL_LEILOES_CADASTRO_LEILAO);
+//	public LeiloesPage(WebDriver webDriver) {
+//		this.browser = webDriver;
+//		//browser.navigate().to(URL_LEILOES_CADASTRO_LEILAO);
+//	}
+	public LeiloesPage(WebDriver browser) {
+		this.browser = browser;
 	}
 
 	public void fechar() {
@@ -23,12 +26,14 @@ public class LeiloesPage {
 		return new CadastraLeilaoPage(browser);
 	}
 
-	public boolean isLeilaoCadastrado(String nome, String valor, String hoje) {
-		WebElement linhaDaTabela = this.browser.findElement(By.cssSelector("#table-leiloes tbody tr:last-child"));
+	public boolean isLeilaoCadastrado(String nome, String valor, String data) {
+		WebElement linhaDaTabela = this.browser.findElement(By.cssSelector("#tabela-leiloes tbody tr:last-child"));
 		WebElement colunaNome = linhaDaTabela.findElement(By.cssSelector("td:nth-child(1)"));
 		WebElement colunaDataAbertura = linhaDaTabela.findElement(By.cssSelector("td:nth-child(2)"));
 		WebElement colunaValorInicial = linhaDaTabela.findElement(By.cssSelector("td:nth-child(3)"));
 
-		return colunaNome.getText().equals(nome) && colunaDataAbertura.getText().equals(hoje) && colunaValorInicial.getText().equals(valor);
+		return colunaNome.getText().equals(nome)
+				&& colunaDataAbertura.getText().equals(data)
+				&& colunaValorInicial.getText().equals(valor);
 	}
 }
