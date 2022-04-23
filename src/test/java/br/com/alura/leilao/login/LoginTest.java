@@ -26,10 +26,6 @@ public class LoginTest {
 		
 		Assert.assertFalse(paginaDeLogin.isPaginaDeLogin());
 		Assert.assertEquals("fulano", paginaDeLogin.getNomeUsuarioLogado());
-		
-		
-		Assert.assertFalse(paginaDeLogin.isPaginaDeLogin());
-		Assert.assertEquals("fulano", paginaDeLogin.getNomeUsuarioLogado());
 	}
 	
 	@Test
